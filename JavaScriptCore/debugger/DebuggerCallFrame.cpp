@@ -165,6 +165,34 @@ JSValue DebuggerCallFrame::evaluateWithCallFrame(CallFrame* callFrame, const Str
     ASSERT(result);
     return result;
 }
+    
+JSValue DebuggerCallFrame::evaluateWithThisValue(JSValue pthisValue, const String& script, JSValue& exception)
+{
+    if (!m_callFrame)
+        return jsNull();
+    
+    JSLockHolder lock(m_callFrame);
+    
+    if (!m_callFrame->codeBlock())
+        return JSValue();
+    
+    VM& vm = m_callFrame->vm();
+    EvalExecutable* eval = EvalExecutable::create(m_callFrame, makeSource(script), m_callFrame->codeBlock()->isStrictMode());
+    if (vm.exception()) {
+        exception = vm.exception();
+        vm.clearException();
+    }
+    
+    JSValue thisValue = pthisValue ? pthisValue : thisValueForCallFrame(m_callFrame);
+    JSValue result = vm.interpreter->execute(eval, m_callFrame, thisValue, m_callFrame->scope());
+    if (vm.exception()) {
+        exception = vm.exception();
+        vm.clearException();
+    }
+    ASSERT(result);
+    return result;
+}
+
 
 void DebuggerCallFrame::invalidate()
 {

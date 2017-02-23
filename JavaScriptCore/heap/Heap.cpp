@@ -171,18 +171,19 @@ static inline size_t proportionalHeapSize(size_t heapSize, size_t ramSize)
     return 1.25 * heapSize;
 }
 
-static inline bool isValidSharedInstanceThreadState(VM* vm)
-{
-    return vm->currentThreadIsHoldingAPILock();
-}
+//static inline bool isValidSharedInstanceThreadState(VM* vm)
+//{
+//    return vm->currentThreadIsHoldingAPILock();
+//}
 
 static inline bool isValidThreadState(VM* vm)
 {
-    if (vm->identifierTable != wtfThreadData().currentIdentifierTable())
-        return false;
+    #pragma unused(vm)
+    //if (vm->identifierTable != wtfThreadData().currentIdentifierTable())
+    //    return false;
 
-    if (vm->isSharedInstance() && !isValidSharedInstanceThreadState(vm))
-        return false;
+   // if (vm->isSharedInstance() && !isValidSharedInstanceThreadState(vm))
+   //     return false;
 
     return true;
 }

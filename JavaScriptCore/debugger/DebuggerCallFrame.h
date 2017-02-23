@@ -64,7 +64,7 @@ public:
     JS_EXPORT_PRIVATE Type type() const;
     JS_EXPORT_PRIVATE JSValue thisValue() const;
     JS_EXPORT_PRIVATE JSValue evaluate(const String&, JSValue& exception) const;
-
+    JS_EXPORT_PRIVATE JSValue evaluateWithThisValue(JSValue pthisValue, const String& script, JSValue& exception);
     bool isValid() const { return !!m_callFrame; }
     JS_EXPORT_PRIVATE void invalidate();
 
@@ -72,6 +72,7 @@ public:
     // made private soon. Other clients should not use these.
 
     JS_EXPORT_PRIVATE static JSValue evaluateWithCallFrame(CallFrame*, const String& script, JSValue& exception);
+   
     JS_EXPORT_PRIVATE static TextPosition positionForCallFrame(CallFrame*);
     JS_EXPORT_PRIVATE static SourceID sourceIDForCallFrame(CallFrame*);
     static JSValue thisValueForCallFrame(CallFrame*);

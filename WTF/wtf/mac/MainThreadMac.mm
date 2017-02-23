@@ -142,7 +142,7 @@ void scheduleDispatchFunctionsOnMainThread()
 #if USE(WEB_THREAD)
 bool isMainThread()
 {
-    return (isWebThread() || pthread_main_np()) && WebCoreWebThreadIsLockedOrDisabled();
+    return false; //return (isWebThread() || pthread_main_np()) && WebCoreWebThreadIsLockedOrDisabled();
 }
 
 bool isUIThread()
