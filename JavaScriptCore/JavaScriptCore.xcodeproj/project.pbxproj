@@ -3542,6 +3542,7 @@
 		A7FCC26D17A0B6AA00786D1A /* FTLSwitchCase.h in Headers */ = {isa = PBXBuildFile; fileRef = A7FCC26C17A0B6AA00786D1A /* FTLSwitchCase.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A8A4748E151A8306004123FF /* libWTF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A4748D151A8306004123FF /* libWTF.a */; };
 		ADE39FFF16DD144B0003CD4A /* PropertyTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD1CF06816DCAB2D00B97123 /* PropertyTable.cpp */; };
+		B8677AEA1E5F956400767E21 /* JSDebugger.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDFAF3D71E576C5C001E719F /* JSDebugger.mm */; };
 		BC02E90D0E1839DB000F9297 /* ErrorConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = BC02E9050E1839DB000F9297 /* ErrorConstructor.h */; };
 		BC02E90F0E1839DB000F9297 /* ErrorPrototype.h in Headers */ = {isa = PBXBuildFile; fileRef = BC02E9070E1839DB000F9297 /* ErrorPrototype.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		BC02E9110E1839DB000F9297 /* NativeErrorConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = BC02E9090E1839DB000F9297 /* NativeErrorConstructor.h */; };
@@ -9794,6 +9795,7 @@
 				10D5914D1889C3DF00C05A0D /* DFGCompilationMode.cpp in Sources */,
 				10D5914E1889C3DF00C05A0D /* DFGConstantFoldingPhase.cpp in Sources */,
 				10D5914F1889C3DF00C05A0D /* DFGCPSRethreadingPhase.cpp in Sources */,
+				B8677AEA1E5F956400767E21 /* JSDebugger.mm in Sources */,
 				10D591501889C3DF00C05A0D /* DFGCriticalEdgeBreakingPhase.cpp in Sources */,
 				10D591511889C3DF00C05A0D /* DFGCSEPhase.cpp in Sources */,
 				10D591521889C3DF00C05A0D /* DFGDCEPhase.cpp in Sources */,
@@ -11431,6 +11433,10 @@
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -11438,6 +11444,8 @@
 					"-licucore",
 					"-lobjc",
 				);
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -11447,12 +11455,18 @@
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ledit",
 					"-licucore",
 					"-lobjc",
 				);
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
@@ -11462,12 +11476,18 @@
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ledit",
 					"-licucore",
 					"-lobjc",
 				);
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Profiling;
@@ -11478,6 +11498,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUILD_VARIANTS = normal;
+				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -11485,6 +11509,8 @@
 					"-licucore",
 					"-lobjc",
 				);
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = debugging;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Production;

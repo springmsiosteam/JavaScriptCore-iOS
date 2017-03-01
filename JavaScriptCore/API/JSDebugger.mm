@@ -67,17 +67,17 @@ void JSDebuggerInternal::handlePause(JSC::Debugger::ReasonForPause reason, JSC::
     if(delegate){
     
         DebuggerCallFrame* debuggerCallFrame = currentDebuggerCallFrame();
-        CallFrame* callFrame = debuggerCallFrame->exec();
-        TextPosition position = debuggerCallFrame->positionForCallFrame(callFrame);
         JSDebuggerBreakpoint* breakpoint = [[JSDebuggerBreakpoint alloc] init];
         breakpoint.sourceID = debuggerCallFrame->sourceID();
-        breakpoint.line = position.m_line.zeroBasedInt();
+        breakpoint.line = debuggerCallFrame->line();
+        breakpoint.condition = (NSString*)debuggerCallFrame->functionName();
     
         switch (reason) {
             
             case JSC::Debugger::PausedAfterCall:
             case JSC::Debugger::PausedBeforeReturn:
-            case JSC::Debugger::PausedForBreakpoint:
+            case JSC::Debugger::PausedAtEndOfProgram:
+            case JSC::Debugger::PausedAtStartOfProgram:
             case JSC::Debugger::PausedAtStatement:
             {
                 [toId(delegate) handleStepHit:breakpoint];
@@ -92,8 +92,7 @@ void JSDebuggerInternal::handlePause(JSC::Debugger::ReasonForPause reason, JSC::
             }
                 break;
             
-            case JSC::Debugger::PausedAtEndOfProgram:
-            case JSC::Debugger::PausedAtStartOfProgram:
+            case JSC::Debugger::PausedForBreakpoint:
             case JSC::Debugger::NotPaused:
                 break;
         }
