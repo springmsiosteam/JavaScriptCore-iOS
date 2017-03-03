@@ -455,9 +455,12 @@ void Debugger::pauseIfNeeded(CallFrame* callFrame)
     pauseNow |= didHitBreakpoint = hasBreakpoint(sourceID, position, &breakpoint);
     m_lastExecutedLine = position.m_line.zeroBasedInt();
     
-    printf("[DEBUGGER.CPP] SOURCEID: %ld, LINE: %d, PAUSENOW: %d, PAUSENEXT: %d\n", sourceID, m_lastExecutedLine, pauseNow, m_pauseOnNextStatement);
-    
 
+    
+    printf("[DEBUGGER.CPP] SOURCEID: %ld, LINE: %d, COLUMN: %d, PAUSENOW: %d, PAUSENEXT: %d\n", sourceID, m_lastExecutedLine, position.m_column.zeroBasedInt(), pauseNow, m_pauseOnNextStatement);
+    
+    if (!pauseNow)
+        return;
     
 
     DebuggerCallFrameScope debuggerCallFrameScope(*this);

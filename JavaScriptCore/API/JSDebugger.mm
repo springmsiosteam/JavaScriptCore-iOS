@@ -69,7 +69,9 @@ void JSDebuggerInternal::handlePause(JSC::Debugger::ReasonForPause reason, JSC::
         DebuggerCallFrame* debuggerCallFrame = currentDebuggerCallFrame();
         JSDebuggerBreakpoint* breakpoint = [[JSDebuggerBreakpoint alloc] init];
         breakpoint.sourceID = debuggerCallFrame->sourceID();
-        breakpoint.line = debuggerCallFrame->line();
+        WTF::TextPosition p = debuggerCallFrame->position();
+        breakpoint.line = p.m_line.oneBasedInt();
+        breakpoint.column = p.m_column.oneBasedInt();
         breakpoint.condition = (NSString*)debuggerCallFrame->functionName();
     
         switch (reason) {
