@@ -11287,7 +11287,7 @@
 		0F4680AD14BA7FD900BFE272 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				SDKROOT = iphoneos;
 			};
@@ -11296,7 +11296,7 @@
 		0F4680AE14BA7FD900BFE272 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				SDKROOT = iphoneos;
 			};
@@ -11305,7 +11305,7 @@
 		0F4680AF14BA7FD900BFE272 /* Profiling */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				SDKROOT = iphoneos;
 			};
@@ -11314,7 +11314,7 @@
 		0F4680B014BA7FD900BFE272 /* Production */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				SDKROOT = iphoneos;
 			};
@@ -11432,11 +11432,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -11454,18 +11454,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ledit",
 					"-licucore",
 					"-lobjc",
 				);
-				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_INSTALLED_PRODUCT = YES;
 				STRIP_STYLE = debugging;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -11475,11 +11477,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ledit",
@@ -11496,13 +11499,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				BUILD_VARIANTS = normal;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ledit",
@@ -11519,6 +11522,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -11528,6 +11532,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -11537,6 +11542,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -11546,6 +11552,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EAA6FF1889E6B300DEB161 /* JavaScriptCore-iOS-Static.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				PRODUCT_NAME = "Derived Sources copy";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -11658,6 +11665,7 @@
 				DEBUG_DEFINES = "$(DEBUG_DEFINES_debug)";
 				FEATURE_DEFINES = "";
 				GCC_OPTIMIZATION_LEVEL = "$(GCC_OPTIMIZATION_LEVEL_debug)";
+				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = "$(STRIP_INSTALLED_PRODUCT_debug)";
 			};
 			name = Debug;
@@ -11667,6 +11675,7 @@
 			baseConfigurationReference = 1C9051440BA9E8A70081E9D0 /* DebugRelease.xcconfig */;
 			buildSettings = {
 				FEATURE_DEFINES = "";
+				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Release;
@@ -11676,6 +11685,7 @@
 			baseConfigurationReference = 1C9051450BA9E8A70081E9D0 /* Base.xcconfig */;
 			buildSettings = {
 				FEATURE_DEFINES = "";
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Production;
 		};
@@ -11878,6 +11888,7 @@
 			baseConfigurationReference = 1C9051440BA9E8A70081E9D0 /* DebugRelease.xcconfig */;
 			buildSettings = {
 				FEATURE_DEFINES = "";
+				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Profiling;

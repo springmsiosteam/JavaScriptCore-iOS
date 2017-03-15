@@ -108,6 +108,8 @@ void JSDebuggerInternal::handlePause(JSC::Debugger::ReasonForPause reason, JSC::
 void JSDebuggerInternal::handleBreakpointHit(const JSC::Breakpoint& breakpoint){
     if(delegate){
         JSDebuggerBreakpoint  *_breakpoint = [[JSDebuggerBreakpoint alloc] init];
+        //DebuggerCallFrame* debuggerCallFrame = currentDebuggerCallFrame();
+        
         _breakpoint.sourceID = breakpoint.sourceID;
         _breakpoint.line = breakpoint.line;
         _breakpoint.condition = (NSString*)breakpoint.condition;
